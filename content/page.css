@@ -1,0 +1,32 @@
+/* Marker-pen highlights Dibs paints on the job page. Injected with chrome.scripting.insertCSS. */
+mark.dibs-mark {
+  --dibs-c: #ffe36e;
+  color: inherit !important;
+  background: linear-gradient(var(--dibs-c), var(--dibs-c)) no-repeat left center / 0% 100%;
+  border-radius: 3px;
+  padding: 0 2px;
+  margin: 0 -2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  animation: dibs-sweep 0.45s ease-out forwards;
+}
+mark.dibs-mark.dibs-yellow { --dibs-c: #ffe36e; }
+mark.dibs-mark.dibs-green  { --dibs-c: #9fe3b4; }
+mark.dibs-mark.dibs-blue   { --dibs-c: #a9cdfa; }
+mark.dibs-mark.dibs-purple { --dibs-c: #d3bcff; }
+mark.dibs-mark.dibs-gray   { --dibs-c: #d4d9e4; }
+mark.dibs-mark.dibs-amber  { --dibs-c: #ffc978; }
+mark.dibs-mark.dibs-red    { --dibs-c: #ff9d9d; }
+mark.dibs-mark.dibs-current { outline: 2px solid #4f46e5; outline-offset: 1px; }
+
+@keyframes dibs-sweep { to { background-size: 100% 100%; } }
+@media (prefers-reduced-motion: reduce) {
+  mark.dibs-mark { animation: none; background-size: 100% 100% !important; }
+}
+
+/* Whole-line highlight for requirement / preferred / duty lines */
+.dibs-line { --dibs-lc: #a9cdfa; box-shadow: inset 4px 0 0 var(--dibs-lc); background-color: color-mix(in srgb, var(--dibs-lc) 22%, transparent) !important; transition: background-color 0.3s; }
+.dibs-line.dibs-blue   { --dibs-lc: #6aa6f5; }
+.dibs-line.dibs-purple { --dibs-lc: #b394f5; }
+.dibs-line.dibs-gray   { --dibs-lc: #9aa3b5; }
+.dibs-line.dibs-current-line { background-color: color-mix(in srgb, var(--dibs-lc) 38%, transparent) !important; }

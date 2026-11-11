@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dibs</title>
+  <link rel="stylesheet" href="css/sidepanel.css">
+</head>
+<body>
+  <header>
+    <h1>Dibs</h1>
+    <div class="actions">
+      <button id="skip" hidden>Skip</button>
+      <button id="read">Read this page</button>
+    </div>
+  </header>
+  <section id="locked" hidden>
+    <p>Dibs needs your OK before it starts.</p>
+    <button id="open-welcome">Read and agree</button>
+  </section>
+  <section id="stage">
+    <div id="robot" data-mood="idle"></div>
+    <div id="bubble">Open a job posting, then press Read this page.</div>
+  </section>
+  <div id="allow-row" hidden>
+    <button id="allow">Allow Dibs to read job pages</button>
+    <p>Chrome will ask once. Dibs still reads a page only when you press Read this page. You can turn this off any time in chrome://extensions.</p>
+  </div>
+  <section id="fit" hidden></section>
+  <section id="match" hidden>
+    <div id="ring"></div>
+    <div id="match-text">
+      <strong id="match-title"></strong>
+      <span id="match-sub"></span>
+    </div>
+  </section>
+  <details id="gaps" hidden>
+    <summary>Gap plan</summary>
+    <ul id="gap-list"></ul>
+    <p id="checks"></p>
+  </details>
+  <button id="open-resume" class="wide-btn" hidden>Tailor my resume for this job</button>
+  <section id="track" hidden>
+    <div id="track-msg"></div>
+    <div class="track-actions">
+      <button id="track-save">Save for later</button>
+      <button id="track-applied" class="primary">I applied</button>
+    </div>
+    <p id="track-fine" class="fine">Dibs never submits anything for you. Press "I applied" only after you have sent the application yourself.</p>
+  </section>
+  <main id="board"></main>
+  <details id="tracker-box">
+    <summary>My applications (<span id="tracker-count">0</span>)</summary>
+    <ul id="tracker-list"></ul>
+  </details>
+  <details id="profile-box">
+    <summary>My profile (resume, GitHub, LinkedIn)</summary>
+    <label>Resume
+      <input type="file" id="resume-file" accept=".pdf,.docx,.txt,.md">
+    </label>
+    <textarea id="resume" rows="6" placeholder="Upload a PDF or Word file above, or paste your resume text here."></textarea>
+    <label>GitHub username
+      <span class="row"><input type="text" id="gh-user" placeholder="e.g. octocat"><button id="gh-fetch">Fetch</button></span>
+    </label>
+    <label>LinkedIn (paste your About and Skills text)
+      <textarea id="linkedin" rows="3" placeholder="Dibs never opens LinkedIn. Paste text you copied from your own profile."></textarea>
+    </label>
+    <label>Years of full-time work experience in your field
+      <input type="number" id="years" min="0" max="40" step="0.5" placeholder="0 (leave empty for new grad)">
+    </label>
+    <button id="profile-save" class="primary">Save profile</button>
+    <p id="profile-status" role="status"></p>
+    <p class="fine">Saved only on this computer. Used only to compare against postings you read.</p>
+  </details>
+  <details id="settings-box">
+    <summary>Settings and my data</summary>
+    <label class="check"><input type="checkbox" id="set-auto"> Read job pages automatically (works only after you allow all sites)</label>
+    <label>Robot reading speed
+      <select id="set-speed">
+        <option value="relaxed">Relaxed (easy to follow)</option>
+        <option value="quick">Quick</option>
+        <option value="instant">Instant (no show)</option>
+      </select>
+    </label>
+    <div class="track-actions">
+      <button id="export-all">Download all my data</button>
+      <button id="export-csv">Download tracker (CSV)</button>
+      <button id="import-btn">Import tracker CSV</button>
+      <input type="file" id="import-csv" accept=".csv,text/csv" hidden>
+    </div>
+    <p id="settings-status" role="status" class="fine"></p>
+    <p id="consent-info" class="fine"></p>
+    <p class="fine">About: Dibs reads postings with pattern matching, not AI, so it can miss or misread things. You can remove any wrong note with its &times; button. The optional AI helpers are in the tailoring window.</p>
+  </details>
+  <footer id="footer" hidden>
+    <a href="docs/terms.html" target="_blank">Terms</a> &middot;
+    <a href="docs/privacy.html" target="_blank">Privacy</a> &middot;
+    <button id="withdraw">Withdraw and delete everything</button>
+  </footer>
+  <script src="js/terms-version.js"></script>
+  <script src="js/robot.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/matcher.js"></script>
+  <script src="js/fit.js"></script>
+  <script src="js/github.js"></script>
+  <script src="js/resume-import.js"></script>
+  <script src="js/tracker.js"></script>
+  <script src="js/sidepanel.js"></script>
+</body>
+</html>

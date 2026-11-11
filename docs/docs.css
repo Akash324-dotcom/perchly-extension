@@ -1,0 +1,13 @@
+:root { --ink:#1b1f2a; --mute:#5b6475; --line:#dfe3ec; --bg:#f4f6fb; --card:#fff; --accent:#4f46e5; }
+@media (prefers-color-scheme: dark) { :root { --ink:#e8ebf3; --mute:#9aa3b5; --line:#2c3243; --bg:#14171f; --card:#1c202b; --accent:#8b83ff; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 system-ui, "Segoe UI", Arial, sans-serif; }
+main { max-width: 720px; margin: 32px auto; padding: 24px 28px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; }
+h1 { margin: 8px 0 4px; font-size: 26px; }
+h2 { font-size: 17px; margin: 22px 0 6px; }
+p, li { margin: 0 0 8px; }
+ul { padding-left: 20px; margin: 0 0 8px; }
+.meta { color: var(--mute); font-size: 13px; }
+.note { border-left: 4px solid var(--accent); background: var(--bg); padding: 8px 12px; border-radius: 6px; font-size: 14px; }
+a { color: var(--accent); }
+#back { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--accent); background: var(--card); color: var(--accent); font-weight: 700; cursor: pointer; font: inherit; font-weight: 700; }
+@media print { #back { display: none; } main { border: 0; } }

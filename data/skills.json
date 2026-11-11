@@ -1,0 +1,473 @@
+{
+  "_comment": "Skill terms the extractor looks for. 'caseSensitive' ones must match exactly (R, Go, C...). 'aliases' maps a short form to the name shown on the note.",
+  "skills": [
+    "Python",
+    "SQL",
+    "Java",
+    "JavaScript",
+    "TypeScript",
+    "C++",
+    "C#",
+    "C",
+    "Go",
+    "Rust",
+    "R",
+    "Scala",
+    "Kotlin",
+    "Swift",
+    "PHP",
+    "Ruby",
+    "MATLAB",
+    "Bash",
+    "React",
+    "Angular",
+    "Vue",
+    "Node.js",
+    "Next.js",
+    "Django",
+    "Flask",
+    "FastAPI",
+    "Spring Boot",
+    ".NET",
+    "HTML",
+    "CSS",
+    "REST",
+    "GraphQL",
+    "Tailwind",
+    "PostgreSQL",
+    "MySQL",
+    "MongoDB",
+    "Redis",
+    "SQLite",
+    "Snowflake",
+    "BigQuery",
+    "Databricks",
+    "Elasticsearch",
+    "DynamoDB",
+    "NoSQL",
+    "AWS",
+    "Azure",
+    "GCP",
+    "Docker",
+    "Kubernetes",
+    "Terraform",
+    "Linux",
+    "Git",
+    "GitHub",
+    "CI/CD",
+    "Jenkins",
+    "GitHub Actions",
+    "Airflow",
+    "Kafka",
+    "Spark",
+    "Hadoop",
+    "dbt",
+    "ETL",
+    "Machine Learning",
+    "Deep Learning",
+    "Computer Vision",
+    "Generative AI",
+    "LLM",
+    "RAG",
+    "PyTorch",
+    "TensorFlow",
+    "Keras",
+    "scikit-learn",
+    "XGBoost",
+    "Hugging Face",
+    "LangChain",
+    "MLOps",
+    "Pandas",
+    "NumPy",
+    "OpenCV",
+    "Power BI",
+    "Tableau",
+    "Excel",
+    "Looker",
+    "Data Visualization",
+    "Data Modeling",
+    "Statistics",
+    "A/B Testing",
+    "Data Analysis",
+    "Data Warehousing",
+    "Agile",
+    "Scrum",
+    "Jira",
+    "Microservices",
+    "System Design",
+    "Unit Testing",
+    "Cybersecurity",
+    "SAP",
+    "Salesforce",
+    "Figma",
+    "Communication",
+    "Microsoft Office",
+    "Word",
+    "PowerPoint",
+    "Outlook",
+    "VBA",
+    "SharePoint",
+    "Visio",
+    "Power Automate",
+    "Alteryx",
+    "Bloomberg",
+    "QuickBooks",
+    "Workday",
+    "ServiceNow",
+    "Zendesk",
+    "HubSpot",
+    "Attention to Detail",
+    "Problem Solving",
+    "Teamwork",
+    "Time Management",
+    "Leadership",
+    "Analytical Skills",
+    "Customer Service",
+    "Project Management",
+    "Risk Management",
+    "Stakeholder Management",
+    "Reconciliation",
+    "Financial Analysis",
+    "Financial Reporting",
+    "Compliance",
+    "Auditing",
+    "Accounting",
+    "Budgeting",
+    "Forecasting",
+    "Process Improvement",
+    "Documentation",
+    "Presentation Skills",
+    "Writing",
+    "Multitasking",
+    "Negotiation",
+    "Sales",
+    "Marketing",
+    "SEO",
+    "Copywriting",
+    "Customer Support",
+    "Quality Assurance",
+    "Troubleshooting",
+    "Mentoring",
+    "MS Access",
+    "Data Science",
+    "Data Mining",
+    "Predictive Analytics",
+    "Big Data",
+    "Hive",
+    "Feature Engineering",
+    "Exploratory Data Analysis",
+    "Supervised Learning",
+    "Unsupervised Learning",
+    "Model Validation",
+    "Model Risk Management",
+    "Transaction Monitoring",
+    "AML",
+    "Financial Crime",
+    "Fraud Detection",
+    "Data Storytelling",
+    "Decision Making",
+    "Commercial Acumen",
+    "Natural Language Processing",
+    "Capital Markets",
+    "Wealth Management",
+    "Actuarial Modeling",
+    "Data Governance",
+    "Data Engineering",
+    "Data Quality",
+    "Regression",
+    "Classification",
+    "Time Series",
+    "Neural Networks",
+    "Reinforcement Learning",
+    "Anomaly Detection",
+    "Clustering",
+    "Recommender Systems",
+    "ETL Pipelines",
+    "API Development",
+    "Cloud Computing",
+    "Testing",
+    "Critical Thinking",
+    "Collaboration",
+    "Adaptability",
+    "Creativity",
+    "MLflow",
+    "Langfuse",
+    "LangSmith",
+    "OpenTelemetry",
+    "Grafana",
+    "LLM Evaluation",
+    "Hallucination Assessment",
+    "AI Safety",
+    "Responsible AI",
+    "Agentic AI",
+    "Observability",
+    "Experimentation",
+    "Data Curation",
+    "Benchmarking",
+    "Software Engineering",
+    "Model Evaluation",
+    "Prompt Engineering",
+    "Embeddings",
+    "APIs",
+    "Document Processing",
+    "ReactJS",
+    "Software Development",
+    "AI Coding Assistants",
+    "Information Retrieval",
+    "Learning to Rank"
+  ],
+  "caseSensitive": [
+    "AML",
+    "AWS",
+    "Accounting",
+    "Agile",
+    "C",
+    "C#",
+    "C++",
+    "CSS",
+    "Compliance",
+    "ETL",
+    "Excel",
+    "Figma",
+    "Flask",
+    "GCP",
+    "Git",
+    "Go",
+    "HTML",
+    "Hive",
+    "Kotlin",
+    "LLM",
+    "Looker",
+    "Node",
+    "PHP",
+    "R",
+    "RAG",
+    "REST",
+    "Ruby",
+    "Rust",
+    "SAP",
+    "SQL",
+    "Sales",
+    "Scala",
+    "Scrum",
+    "Spark",
+    "Swift",
+    "Word",
+    "Writing"
+  ],
+  "aliases": {
+    "JavaScript": [
+      "JS"
+    ],
+    "PostgreSQL": [
+      "Postgres"
+    ],
+    "scikit-learn": [
+      "sklearn",
+      "scikit learn"
+    ],
+    "Node.js": [
+      "NodeJS",
+      "Node"
+    ],
+    "Kubernetes": [
+      "K8s"
+    ],
+    "Generative AI": [
+      "GenAI",
+      "Gen AI"
+    ],
+    "Power BI": [
+      "PowerBI"
+    ],
+    "MongoDB": [
+      "Mongo"
+    ],
+    "Data Visualization": [
+      "Data Visualisation",
+      "dashboards"
+    ],
+    "A/B Testing": [
+      "AB testing",
+      "A/B tests"
+    ],
+    "Microsoft Office": [
+      "MS Office",
+      "Office 365",
+      "Microsoft 365",
+      "M365"
+    ],
+    "Attention to Detail": [
+      "detail-oriented",
+      "detail oriented",
+      "attention to details"
+    ],
+    "Problem Solving": [
+      "problem-solving",
+      "problem solver"
+    ],
+    "Analytical Skills": [
+      "analytic skills",
+      "analytical thinking"
+    ],
+    "Teamwork": [
+      "team player",
+      "collaboration",
+      "collaborative",
+      "team project",
+      "cross-functional",
+      "student teams"
+    ],
+    "Time Management": [
+      "time-management"
+    ],
+    "Customer Service": [
+      "client service"
+    ],
+    "Statistics": [
+      "statistical"
+    ],
+    "Communication": [
+      "communicate",
+      "verbal and written",
+      "written and verbal"
+    ],
+    "Exploratory Data Analysis": [
+      "EDA"
+    ],
+    "Data Analysis": [
+      "data analytics",
+      "analyzing data",
+      "analysing data"
+    ],
+    "Natural Language Processing": [
+      "NLP",
+      "NLI",
+      "natural-language processing",
+      "natural language",
+      "sentence-transformers",
+      "sentence transformers"
+    ],
+    "Feature Engineering": [
+      "feature development"
+    ],
+    "Model Risk Management": [
+      "Model Risk"
+    ],
+    "Financial Crime": [
+      "financial crimes"
+    ],
+    "Transaction Monitoring": [
+      "transaction-monitoring"
+    ],
+    "Unsupervised Learning": [
+      "unsupervised"
+    ],
+    "Supervised Learning": [
+      "supervised learning"
+    ],
+    "Data Storytelling": [
+      "tell stories with data",
+      "storytelling"
+    ],
+    "Fraud Detection": [
+      "fraud analytics"
+    ],
+    "Machine Learning": [
+      "ML",
+      "machine-learning"
+    ],
+    "Mentoring": [
+      "mentorship",
+      "mentor junior"
+    ],
+    "Leadership": [
+      "technical leadership",
+      "thought leadership"
+    ],
+    "LLM Evaluation": [
+      "AI evaluation",
+      "LLM-as-judge",
+      "LLM as judge",
+      "evaluation frameworks",
+      "AI evaluations"
+    ],
+    "Hallucination Assessment": [
+      "hallucination",
+      "factuality assessment"
+    ],
+    "Agentic AI": [
+      "agentic",
+      "AI agents"
+    ],
+    "Responsible AI": [
+      "responsible artificial intelligence"
+    ],
+    "Model Evaluation": [
+      "model quality benchmarking",
+      "model quality",
+      "evaluation metrics",
+      "evaluation-metrics",
+      "claim verification",
+      "claim-level",
+      "evaluation methods"
+    ],
+    "Software Engineering": [
+      "software development",
+      "full-stack",
+      "full stack",
+      "software developer"
+    ],
+    "Document Processing": [
+      "document intelligence",
+      "document-processing",
+      "PDF parsing"
+    ],
+    "APIs": [
+      "REST APIs",
+      "API",
+      "FastAPI",
+      "endpoints"
+    ],
+    "Embeddings": [
+      "embedding",
+      "FAISS",
+      "vector search"
+    ],
+    "AI Coding Assistants": [
+      "Claude Code",
+      "GitHub Copilot",
+      "Copilot",
+      "AI coding assistant"
+    ],
+    "Agile": [
+      "sprint planning",
+      "daily scrums",
+      "sprints"
+    ],
+    "Testing": [
+      "automated tests",
+      "automated testing",
+      "unit tests",
+      "pytest",
+      "test harness"
+    ],
+    "Prompt Engineering": [
+      "prompts",
+      "prompt design"
+    ],
+    "ReactJS": [
+      "React",
+      "React Native"
+    ],
+    "Experimentation": [
+      "experiments",
+      "experiment design",
+      "controlled comparison"
+    ],
+    "Learning to Rank": [
+      "learning-to-rank",
+      "LTR"
+    ]
+  }
+}

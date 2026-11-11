@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Dibs</title>
+  <link rel="stylesheet" href="welcome.css">
+</head>
+<body>
+  <main id="card">
+    <h1>Welcome to Dibs</h1>
+    <p id="changed" class="changed" hidden></p>
+    <p class="lead">Before you start, in plain words:</p>
+    <ul>
+      <li>Your resume, notes and tracker stay in your browser on this computer. Dibs has no server and no account.</li>
+      <li>Dibs reads a page when you open its panel there or press Read this page. It reads job pages on its own only if you allow that later.</li>
+      <li>It contacts GitHub only if you enter a username, and passes text to an AI only when you press a button for it.</li>
+      <li>You send your own applications and check that every resume line is true.</li>
+      <li>Scores are keyword matches, not guarantees.</li>
+    </ul>
+    <label class="agree">
+      <input type="checkbox" id="agree-box">
+      <span>I have read and agree to the
+        <a href="../docs/terms.html" target="_blank">Terms of Use</a> and
+        <a href="../docs/privacy.html" target="_blank">Privacy Policy</a> (version <span id="ver"></span>)</span>
+    </label>
+    <div class="buttons">
+      <button id="agree-btn" disabled>I agree and continue</button>
+      <button id="decline-btn" class="ghost">Decline</button>
+    </div>
+    <p id="message" role="status"></p>
+  </main>
+  <script src="../js/terms-version.js"></script>
+  <script src="../js/consent.js"></script>
+</body>
+</html>

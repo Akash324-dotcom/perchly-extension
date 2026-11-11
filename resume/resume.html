@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dibs - Live resume</title>
+  <link rel="stylesheet" href="resume.css">
+</head>
+<body>
+  <header>
+    <h1>Dibs &middot; Live resume</h1>
+    <div id="job"></div>
+  </header>
+  <p class="truth"><b>Nothing here is invented.</b> Auto-tailor only moves or removes lines you already wrote, and adds a GitHub project from that repo&rsquo;s own README with a fill-in spot for the result. You can edit everything. A recruiter or an interviewer will ask about every line.</p>
+  <div id="fit" hidden></div>
+  <div id="empty" hidden>
+    <p>Dibs needs two things first: a saved profile (resume text) and one job posting you have read. Go back to the job tab, press <b>Read this page</b> in the Dibs panel, then press <b>Tailor my resume</b>.</p>
+  </div>
+  <div class="cols" id="cols" hidden>
+    <section class="left">
+      <div class="auto">
+        <div class="bar">
+          <button id="auto" class="primary">Auto-tailor for this job</button>
+          <button id="undo" disabled>Undo</button>
+        </div>
+        <label><input type="checkbox" id="o-reorder" checked> Put the most relevant projects and skills first</label>
+        <label><input type="checkbox" id="o-gh" checked> Add my best GitHub project(s)</label>
+        <label><input type="checkbox" id="o-trim"> Drop bullets that match nothing in the posting</label>
+        <ul id="tailor-log"></ul>
+      </div>
+      <div class="auto">
+        <strong>Ask an AI to rewrite it</strong>
+        <p class="fine">Makes a full brief (your resume, the posting, your GitHub facts, strict no-invention rules), opens the AI you pick and types the brief into its chat box under your own login. You read it and press Enter there. Dibs never sends it for you.</p>
+        <div class="bar"><select id="ai-provider" aria-label="Which AI"></select><button id="ask" class="primary">Copy brief and open</button></div>
+        <label><input type="checkbox" id="o-redact" checked> Leave my email and phone number out of the brief</label>
+      </div>
+      <div class="auto" id="ai-panel">
+        <strong>On-device AI helper</strong> <span id="ai-status" class="fine"></span>
+        <div class="bar"><button id="ai-enable" hidden>Turn on (downloads once)</button></div>
+        <div id="ai-result"></div>
+      </div>
+      <div class="bar"><strong>Your resume text (edit here)</strong><button id="reset">Reset to base resume</button></div>
+      <textarea id="text" spellcheck="false" aria-label="Resume text"></textarea>
+      <div id="fitbar" title="Estimate of how full one page is"><div id="fitfill"></div></div>
+      <p id="fitlabel" class="fine"></p>
+      <div class="bar">
+        <button id="save-v" class="primary">Save tailored version for this job</button>
+        <button id="pdf">Save as PDF</button>
+        <button id="word">Download Word</button>
+        <button id="copy">Copy text</button>
+        <button id="dl">Download .txt</button>
+      </div>
+      <p id="msg" role="status" class="fine"></p>
+      <p class="fine">Your base resume in the Dibs profile is never changed. "Save as PDF" opens the print window: choose "Save as PDF" as the printer. The files are made in your browser and are not uploaded anywhere.</p>
+      <div class="auto" id="letter-box">
+        <div class="bar"><strong>Cover letter</strong><span id="words" class="fine"></span></div>
+        <p class="fine">Built from one real bullet of your resume, the one that best matches this posting. Edit it freely. Limit: 250 words.</p>
+        <textarea id="letter" spellcheck="true" aria-label="Cover letter"></textarea>
+        <div class="bar">
+          <button id="letter-new">Write it again from my resume</button>
+          <button id="letter-save" class="primary">Save letter</button>
+          <button id="letter-pdf">Save as PDF</button>
+          <button id="letter-word">Download Word</button>
+          <button id="letter-copy">Copy</button>
+        </div>
+      </div>
+    </section>
+    <section class="right">
+      <div id="score-row">
+        <div id="ring"></div>
+        <div><strong id="score-title"></strong><span id="score-sub"></span><span id="delta"></span></div>
+      </div>
+      <h2>Keywords in this posting</h2>
+      <div id="chips"></div>
+      <h2>Suggestions</h2>
+      <ul id="sugg"></ul>
+      <h2>Your GitHub projects, ranked for this job</h2>
+      <div id="projects"></div>
+      <h2>Preview
+        <span class="tabs"><button id="m-order" class="on">Your order</button><button id="m-rel">Most relevant first</button></span>
+      </h2>
+      <div id="legend"><span class="hl hl-req">required</span> <span class="hl hl-nice">nice to have</span> <span class="hl hl-rel">related word (reword only if true)</span></div>
+      <div id="preview"></div>
+    </section>
+  </div>
+  <script src="../js/github.js"></script>
+  <script src="../js/matcher.js"></script>
+  <script src="tailor.js"></script>
+  <script src="ai.js"></script>
+  <script src="export.js"></script>
+  <script src="resume.js"></script>
+</body>
+</html>
