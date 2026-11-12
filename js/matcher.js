@@ -17,6 +17,7 @@ function regexesFor(name, cfg) {
   let head = '(?<![A-Za-z0-9_+#.])';
   let tail = '(?![A-Za-z0-9_+#&])';
   if (base.length <= 2) { tail = "(?![A-Za-z0-9_+#&\\-’'])(?!\\.\\d)"; head = '(?<![A-Za-z0-9_+#.\\-/])'; }
+  if (base === 'Testing') head += '(?<!(?:hypothesis|statistical|significance|a\\/b|split)[\\s-])';
   const names = [base];
   if (!dict && /s$/i.test(base)) names.push(base.replace(/s$/i, ''));
   const out = [new RegExp(head + '(?:' + names.map(escapeRe).join('|') + ')' + tail, cs.has(base) ? '' : 'i')];
@@ -47,6 +48,9 @@ const RELATED = {
   'spark': { kind: 'swap', terms: [/\bpandas\b/i, /data pipeline/i] },
   'learning to rank': { kind: 'swap', terms: [/\branking\b/i, /FAISS/i, /information retrieval/i, /retrieval/i] },
   'react': { kind: 'swap', terms: [/React Native/i] },
+  'tableau': { kind: 'swap', terms: [/Power BI/i, /Looker/i, /\bQlik/i] },
+  'power bi': { kind: 'swap', terms: [/Tableau/i, /Looker/i, /\bQlik/i] },
+  'communication': { kind: 'word', terms: [/\bpresent(?:ed|ations?)\b/i, /non-technical/i, /stakeholders?/i] },
   'sql': { kind: 'swap', terms: [/PostgreSQL/i, /MySQL/i, /SQLite/i] },
 };
 

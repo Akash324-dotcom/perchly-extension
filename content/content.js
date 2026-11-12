@@ -77,6 +77,7 @@
       let tail = '(?![A-Za-z0-9_+#&])';
       let head = '(?<![A-Za-z0-9_+#.])';
       if (name.length <= 2) { tail = "(?![A-Za-z0-9_+#&\\-\u2019'])(?!\\.\\d)"; head = '(?<![A-Za-z0-9_+#.\\-/])'; }
+      if (name === 'Testing') head += '(?<!(?:hypothesis|statistical|significance|a\\/b|split)[\\s-])';
       if (name === 'Go') tail += '(?!\\s+(?:to|ahead|for|the|after|live|with)\\b)(?!-)';
       const res = [new RegExp(head + '(?:' + esc(name) + ')' + tail, cs.has(name) ? '' : 'i')];
       const aliases = (cfg.aliases && cfg.aliases[name]) || [];
