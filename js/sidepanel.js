@@ -34,8 +34,13 @@ const looksLikeJob = (url, title) => JOBISH.test(url || '') || JOBISH.test(title
 // Waits ms, but returns at once if the user pressed Skip.
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, skipping ? 0 : ms));
 
+let lastAddAt = 0, burst = 0;
 function addNote(note) {
+  const t = performance.now();
+  burst = t - lastAddAt < 100 ? Math.min(burst + 1, 12) : 0;
+  lastAddAt = t;
   const el = document.createElement('div');
+  el.style.setProperty('--d', burst);
   el.className = 'note ' + note.color;
   el.dataset.id = note.id;
   if (note.line) { el.classList.add('wide'); el.title = note.full; }
@@ -224,10 +229,10 @@ function ringSvg(score) {
   const color = score >= 70 ? '#16a34a' : score >= 40 ? '#f59e0b' : '#ef4444';
   const n = Number(score);
   return '<svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">' +
-    '<circle cx="32" cy="32" r="28" fill="none" stroke="#e8ebf1" stroke-width="7"/>' +
+    '<circle class="ring-track" cx="32" cy="32" r="28" fill="none" stroke="#e8ebf1" stroke-width="7"/>' +
     '<circle cx="32" cy="32" r="28" fill="none" stroke="' + color + '" stroke-width="7" stroke-linecap="round" ' +
     'stroke-dasharray="' + ((n / 100) * c).toFixed(1) + ' ' + c.toFixed(1) + '" transform="rotate(-90 32 32)"/>' +
-    '<text x="32" y="37" text-anchor="middle" font-size="16" font-weight="700" fill="#1b1f2a" font-family="system-ui, sans-serif">' + n + '</text></svg>';
+    '<text class="ring-num" x="32" y="37" text-anchor="middle" font-size="16" font-weight="700" fill="#1b1f2a" font-family="system-ui, sans-serif">' + n + '</text></svg>';
 }
 
 // Ring sweeps from the old value to the new one while the number counts up (500 ms).
@@ -468,6 +473,7 @@ document.getElementById('gh-fetch').addEventListener('click', async () => {
 document.getElementById('profile-save').addEventListener('click', async () => {
   await saveProfile();
   statusEl.textContent = 'Saved on this computer.';
+  statusEl.classList.remove('flash'); void statusEl.offsetWidth; statusEl.classList.add('flash');
   const had = await renderMatch();
   if (!had && lastNotes.length) statusEl.textContent += ' Add some text to compare.';
 });

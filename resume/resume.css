@@ -80,4 +80,40 @@ select { font: inherit; font-size: 13px; padding: 5px 8px; border-radius: 8px; b
   body > *:not(#print-sheet) { display: none !important; }
   #print-sheet { display: block; }
 }
-@media (prefers-reduced-motion: reduce) { #fitfill { transition: none; } }
+
+/* ---- motion and feedback ---- */
+:root { color-scheme: light dark; --ease: cubic-bezier(.2, .8, .2, 1); --accent-soft: rgba(79, 70, 229, .12); }
+@media (prefers-color-scheme: dark) { :root { --accent-soft: rgba(139, 131, 255, .18); } }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes reveal { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+@keyframes pulse-num { 40% { transform: scale(1.25); } }
+.truth { animation: rise .35s var(--ease) both; }
+.left { animation: rise .35s var(--ease) .06s both; }
+.right { animation: rise .35s var(--ease) .12s both; }
+#fit:not([hidden]), #empty:not([hidden]) { animation: rise .3s var(--ease) both; }
+button { font-family: inherit; font-weight: 600;
+  transition: transform .12s var(--ease), box-shadow .18s, background-color .18s, border-color .18s, color .18s, opacity .18s; }
+button:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 3px 8px rgba(30, 40, 80, .16); border-color: var(--accent); }
+button.primary:hover:not(:disabled) { filter: brightness(1.08); }
+button:active:not(:disabled) { transform: translateY(0) scale(.96); box-shadow: none; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+textarea, select, input[type="text"] { transition: border-color .15s, box-shadow .15s; }
+textarea:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); outline: none; }
+input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); }
+.chip { transition: transform .15s var(--ease), box-shadow .15s; }
+.chip:hover { transform: translateY(-1px) scale(1.05); box-shadow: 0 2px 6px rgba(30, 40, 80, .15); }
+.proj { transition: transform .18s var(--ease), box-shadow .18s, border-color .18s; }
+.proj:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(30, 40, 80, .12); border-color: var(--accent); }
+#sugg li { padding: 3px 6px; border-radius: 6px; transition: background-color .15s; }
+#sugg li:hover { background: var(--accent-soft); }
+.auto { transition: border-color .2s; }
+.auto:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+#tailor-log li { animation: reveal .2s var(--ease) both; }
+#ai-result .cmp { animation: reveal .2s var(--ease) both; }
+#delta.up, #delta.down { display: inline-block; animation: pulse-num .35s var(--ease); }
+.tabs button { transition: background-color .15s, color .15s, border-color .15s, transform .12s; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; animation-delay: 0s !important; transition-duration: .01ms !important; }
+  button:hover:not(:disabled), .proj:hover, .chip:hover { transform: none; }
+}
+#ring .ring-track { stroke: var(--line); }

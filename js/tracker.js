@@ -183,12 +183,20 @@ function trackerHide() { trackBox.hidden = true; trackPage = null; }
 
 async function trackerRender() {
   const list = await tracker.all();
-  document.getElementById('tracker-count').textContent = list.length;
+  const countEl = document.getElementById('tracker-count');
+  if (countEl.textContent !== String(list.length)) { countEl.textContent = list.length; countEl.classList.remove('bump'); void countEl.offsetWidth; countEl.classList.add('bump'); }
   const ul = document.getElementById('tracker-list');
   ul.textContent = '';
   const today = todayStr();
+  if (!list.length) {
+    const e = document.createElement('li');
+    e.className = 'empty';
+    e.textContent = 'Nothing here yet. Open a job, press Save for later or I applied, and it shows up in this list.';
+    ul.append(e);
+  }
   for (const a of list) {
     const li = document.createElement('li');
+    li.dataset.status = a.status;
     const top = document.createElement('div');
     if (a.url) { const t = document.createElement('a'); t.href = a.url; t.target = '_blank'; t.rel = 'noopener'; t.textContent = a.role; top.append(t); }
     else { const t = document.createElement('b'); t.textContent = a.role; top.append(t); }

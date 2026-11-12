@@ -47,5 +47,14 @@ function setRobotMood(mood) {
 }
 
 function setBubble(text) {
-  document.getElementById('bubble').textContent = text;
+  const b = document.getElementById('bubble');
+  if (b.textContent === text) return;
+  b.textContent = text;
+  b.classList.remove('talk'); void b.offsetWidth; b.classList.add('talk');
 }
+
+// Click the robot for a little hop and wave.
+robotBox.addEventListener('click', () => {
+  robotBox.classList.remove('boop'); void robotBox.offsetWidth; robotBox.classList.add('boop');
+  setTimeout(() => robotBox.classList.remove('boop'), 700);
+});

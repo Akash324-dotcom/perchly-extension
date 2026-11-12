@@ -37,7 +37,7 @@
   function ringSvg(score) {
     const c = 2 * Math.PI * 28, n = Number(score);
     const color = n >= 70 ? '#16a34a' : n >= 40 ? '#f59e0b' : '#ef4444';
-    return '<svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true"><circle cx="32" cy="32" r="28" fill="none" stroke="#e8ebf1" stroke-width="7"/>' +
+    return '<svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true"><circle class="ring-track" cx="32" cy="32" r="28" fill="none" stroke="#e8ebf1" stroke-width="7"/>' +
       '<circle cx="32" cy="32" r="28" fill="none" stroke="' + color + '" stroke-width="7" stroke-linecap="round" stroke-dasharray="' + ((n / 100) * c).toFixed(1) + ' ' + c.toFixed(1) + '" transform="rotate(-90 32 32)"/>' +
       '<text x="32" y="37" text-anchor="middle" font-size="16" font-weight="700" fill="#888" font-family="system-ui,sans-serif">' + n + '</text></svg>';
   }
