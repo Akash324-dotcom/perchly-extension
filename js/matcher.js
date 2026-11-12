@@ -7,7 +7,7 @@ const QUICK_SKILLS = new Set(['git', 'github', 'jira', 'agile', 'scrum', 'excel'
   'powerpoint', 'outlook', 'sharepoint', 'visio', 'bloomberg', 'statistics', 'data visualization', 'a/b testing', 'html', 'css', 'power automate', 'quickbooks', 'reconciliation', 'financial analysis', 'financial reporting', 'compliance', 'auditing', 'accounting',
   'budgeting', 'forecasting', 'risk management', 'sales', 'marketing', 'seo', 'copywriting', 'quality assurance', 'troubleshooting', 'project management']);
 
-function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&'); }
+function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&').replace(/ /g, '\\s+'); }
 
 function regexesFor(name, cfg) {
   const key = name.toLowerCase();

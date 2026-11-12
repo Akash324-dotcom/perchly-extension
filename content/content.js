@@ -71,7 +71,7 @@
 
   function buildSkillDefs(cfg) {
     const cs = new Set(cfg.caseSensitive || []);
-    const esc = (s) => s.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&');
+    const esc = (s) => s.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&').replace(/ /g, '\\s+');
     const defs = [];
     for (const name of cfg.skills || []) {
       let tail = '(?![A-Za-z0-9_+#&])';
