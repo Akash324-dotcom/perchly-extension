@@ -1,5 +1,5 @@
 // Live resume: your resume text beside the posting you last read. Everything updates as you type.
-// Dibs highlights and suggests. It never writes a claim for you, and it never changes your saved base resume.
+// Perchly highlights and suggests. It never writes a claim for you, and it never changes your saved base resume.
 (async () => {
   const $ = (id) => document.getElementById(id);
   const got = await chrome.storage.local.get(['dibs_last', 'profile', 'dibs_resumes', 'dibs_proofs', 'dibs_letters']);
@@ -141,7 +141,7 @@
     };
     for (const it of m.items.filter((i) => i.status !== 'resume' && proofs[i.name.toLowerCase()])) {
       it.proofed = true;
-      add(it.name + ':', 'you told Dibs you have this ("' + proofs[it.name.toLowerCase()] + '"), but it is not written on the resume. Add one truthful bullet about it.');
+      add(it.name + ':', 'you told Perchly you have this ("' + proofs[it.name.toLowerCase()] + '"), but it is not written on the resume. Add one truthful bullet about it.');
     }
     for (const it of m.items.filter((i) => i.status === 'related' && !i.ghOnly && !i.proofed)) {
       const terms = (RELATED[it.name.toLowerCase()] || {}).terms || [];
@@ -171,13 +171,13 @@
     const repos = (profile.github && profile.github.repos) || [];
     if (!repos.length) {
       const p = document.createElement('p'); p.className = 'fine';
-      p.textContent = 'No GitHub projects saved yet. In the Dibs panel, open My profile, type your GitHub username and press Fetch.'; box.append(p);
+      p.textContent = 'No GitHub projects saved yet. In the Perchly panel, open My profile, type your GitHub username and press Fetch.'; box.append(p);
     } else {
       const noReadme = repos.every((r) => !r.readme);
       const ranked = rankRepos(m.items).slice(0, 6);
       if (noReadme) {
         const p = document.createElement('p'); p.className = 'fine';
-        p.textContent = 'Dibs only has repo names and short descriptions. Press Fetch again in your profile to read each README for better matching.'; box.append(p);
+        p.textContent = 'Perchly only has repo names and short descriptions. Press Fetch again in your profile to read each README for better matching.'; box.append(p);
       }
       if (!ranked.length) { const p = document.createElement('p'); p.className = 'fine'; p.textContent = 'None of your public repos mention this posting’s skills.'; box.append(p); }
       for (const x of ranked) {
@@ -336,7 +336,7 @@
     const mk = (cls, t) => { const d = document.createElement('div'); d.className = cls; d.textContent = t; aiOut.append(d); return d; };
     mk('fine', 'Original'); mk('cmp', orig);
     mk('fine', 'Suggested'); mk('cmp', next || '(nothing)');
-    if (!g.ok) { mk('bad', 'Rejected by the truth check: ' + g.problems.join(', ') + '. Dibs will not let you accept this one.'); return; }
+    if (!g.ok) { mk('bad', 'Rejected by the truth check: ' + g.problems.join(', ') + '. Perchly will not let you accept this one.'); return; }
     mk('ok', 'Passed the truth check: no new numbers or names. Read it and make sure it is still true.');
     const row = document.createElement('div'); row.className = 'bar';
     const yes = document.createElement('button'); yes.className = 'primary'; yes.textContent = 'Accept (replace this bullet)';
@@ -385,7 +385,7 @@
   $('undo').addEventListener('click', () => { if (preTailor !== null) { textEl.value = preTailor; preTailor = null; $('undo').disabled = true; $('tailor-log').textContent = ''; $('msg').textContent = 'Undone.'; render(); } });
 
   // A ready-made brief for a proper rewrite in a chat AI: your facts only, with the truth rules built in.
-  // Email addresses anywhere, and phone numbers in the top lines, are swapped for a marker before the text leaves Dibs.
+  // Email addresses anywhere, and phone numbers in the top lines, are swapped for a marker before the text leaves Perchly.
   const redactContact = (t) => t.split(/\r?\n/).map((l, i) => { let o = l.replace(/[\w.+-]+@[\w-]+\.[\w.-]+/g, '[email removed]'); if (i < 8) o = o.replace(/\+?\d[\d\s().-]{8,}\d/g, '[phone removed]'); return o; }).join('\n');
   const sel = $('ai-provider');
   for (const pv of PROVIDERS) { const o = document.createElement('option'); o.value = pv.id; o.textContent = pv.name; sel.append(o); }

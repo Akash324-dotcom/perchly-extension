@@ -12,7 +12,7 @@ chrome.storage.local.get('consent').then(({ consent }) => {
     c.textContent = 'The Terms and Privacy Policy were updated (you agreed to version ' + consent.termsVersion + ').' + (TERMS_CHANGES ? ' What changed: ' + TERMS_CHANGES : ' Please read them again.');
     c.hidden = false;
   } else if (consent && consent.termsVersion === TERMS_VERSION) {
-    message.textContent = 'You already agreed to this version on ' + String(consent.acceptedAt).slice(0, 10) + '. Click the Dibs icon in your toolbar to start.';
+    message.textContent = 'You already agreed to this version on ' + String(consent.acceptedAt).slice(0, 10) + '. Click the Perchly icon in your toolbar to start.';
   }
 });
 
@@ -20,12 +20,12 @@ box.addEventListener('change', () => { agreeBtn.disabled = !box.checked; });
 
 agreeBtn.addEventListener('click', async () => {
   await chrome.storage.local.set({ consent: { termsVersion: TERMS_VERSION, acceptedAt: new Date().toISOString() } });
-  message.textContent = 'All set. Click the Dibs icon in your toolbar to start.';
+  message.textContent = 'All set. Click the Perchly icon in your toolbar to start.';
   agreeBtn.disabled = true;
   declineBtn.disabled = true;
   box.disabled = true;
 });
 
 declineBtn.addEventListener('click', () => {
-  message.textContent = "Dibs can't run without agreeing. Nothing was stored. You can remove it any time from chrome://extensions.";
+  message.textContent = "Perchly can't run without agreeing. Nothing was stored. You can remove it any time from chrome://extensions.";
 });

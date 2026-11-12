@@ -1,4 +1,4 @@
-/* Marker-pen highlights Dibs paints on the job page. Injected with chrome.scripting.insertCSS. */
+/* Marker-pen highlights Perchly paints on the job page. Injected with chrome.scripting.insertCSS. */
 mark.dibs-mark {
   --dibs-c: #ffe36e;
   color: inherit !important;

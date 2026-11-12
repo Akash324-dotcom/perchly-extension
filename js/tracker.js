@@ -1,5 +1,5 @@
-// Tracker: remembers jobs you saved or applied to, so Dibs can warn you before you apply twice.
-// Dibs never submits anything. "I applied" only records what YOU did. Everything stays in chrome.storage.local.
+// Tracker: remembers jobs you saved or applied to, so Perchly can warn you before you apply twice.
+// Perchly never submits anything. "I applied" only records what YOU did. Everything stays in chrome.storage.local.
 const TRACK_KEY = 'dibs_apps';
 const KEEP_PARAMS = ['jobid', 'job_id', 'gh_jid', 'jk', 'currentjobid', 'reqid', 'req_id', 'requisitionid', 'id', 'jid', 'posting'];
 const STATUSES = [['saved', 'Saved'], ['applied', 'Applied'], ['interview', 'Interview'], ['offer', 'Offer'], ['rejected', 'Rejected'], ['withdrawn', 'Withdrawn']];
@@ -78,7 +78,7 @@ const tracker = {
 };
 const hasApplied = (a) => a.status && a.status !== 'saved';
 
-// ---------- CSV (so the tracker is never locked inside Dibs) ----------
+// ---------- CSV (so the tracker is never locked inside Perchly) ----------
 const CSV_COLS = ['Company', 'Role', 'Link', 'Status', 'Saved', 'Applied', 'Follow up', 'Match %', 'Resume used'];
 function csvCell(v) { const s = v == null ? '' : String(v); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }
 function trackerToCsv(list) {
@@ -103,7 +103,7 @@ function toIsoDate(v) {
   if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0, 10);
   const d = new Date(s); return isNaN(d) ? '' : new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
 }
-// Accepts Dibs's own CSV and most hand-made sheets: it finds the columns by their header words.
+// Accepts Perchly's own CSV and most hand-made sheets: it finds the columns by their header words.
 async function importTrackerCsv(text) {
   const rows = parseCsv(text.replace(/^﻿/, ''));
   if (rows.length < 2) return { added: 0, skipped: 0, error: 'That file has no rows.' };
@@ -175,7 +175,7 @@ async function trackerShow(page, justApplied) {
     trackMsg.append(t);
     trackSave.hidden = hit.how === 'exact';
   } else {
-    trackMsg.textContent = page.fit === 'mismatch' ? 'New job. Dibs flagged it as a likely mismatch, so think before you spend time on it.' : 'New job. Not in your tracker yet.';
+    trackMsg.textContent = page.fit === 'mismatch' ? 'New job. Perchly flagged it as a likely mismatch, so think before you spend time on it.' : 'New job. Not in your tracker yet.';
   }
   trackBox.hidden = false;
 }

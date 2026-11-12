@@ -1,4 +1,4 @@
-// Dibs content script. Injected into the job page only after the user clicks Dibs (activeTab).
+// Perchly content script. Injected into the job page only after the user clicks Perchly (activeTab).
 // It does three things: (1) reads the visible text, (2) turns it into notes, (3) paints
 // marker-pen highlights and a little robot badge on the page. It never changes the page's
 // own text and never sends anything anywhere: results go back to the side panel only.
@@ -407,7 +407,7 @@
       else if (v.mode === 'nice' && nNice < 15) { addNote('Nice to have', name, 'purple', v.i, v.start, v.end, { tag: v.tag }); nNice++; }
     }
 
-    // Whole requirement / preferred / duty lines, so nothing is silently missed even when Dibs doesn't know the words
+    // Whole requirement / preferred / duty lines, so nothing is silently missed even when Perchly doesn't know the words
     const DUTY_H = /(responsibilit|what (?:will )?you.{0,3}(?:ll )?do|your role|duties|day[- ]to[- ]day|accountabilities)/i;
     const QUAL_H = /(requirement|qualification|must[- ]have|what (?:do )?you(?:.{0,3}ll)? need|about you|who you are|what you bring|you bring|you have|skills (?:and|&) experience|looking for)/i;
     let lm = null;

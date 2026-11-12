@@ -50,7 +50,7 @@ function addNote(note) {
   text.textContent = note.text;
   const x = document.createElement('button');
   x.className = 'note-x';
-  x.title = 'Remove this note (Dibs got it wrong, or it does not matter)';
+  x.title = 'Remove this note (Perchly got it wrong, or it does not matter)';
   x.setAttribute('aria-label', 'Remove note: ' + note.label);
   x.textContent = '\u00d7';
   x.addEventListener('click', () => removeNote(note.id));
@@ -105,7 +105,7 @@ async function readPage(manual) {
   setRobotMood('reading');
   setBubble('Looking at the page...');
 
-  // 1. Get into the page (works only after Chrome has given Dibs access to this tab).
+  // 1. Get into the page (works only after Chrome has given Perchly access to this tab).
   let result;
   try {
     const tab = await getTargetTab();
@@ -129,9 +129,9 @@ async function readPage(manual) {
     await send({ type: 'dibs-clear', badge: false });
     result = await send({ type: 'dibs-extract', cfg: await loadSkillConfig() });
   } catch (err) {
-    console.error('Dibs read error:', err);
+    console.error('Perchly read error:', err);
     allowRow.hidden = false;
-    return fail("I can't read this tab yet. Click the Dibs icon in your toolbar while on the job posting, or use the button below.");
+    return fail("I can't read this tab yet. Click the Perchly icon in your toolbar while on the job posting, or use the button below.");
   }
   if (!result || result.error || !result.notes || result.notes.length === 0) {
     await send({ type: 'dibs-clear', badge: true });
@@ -210,8 +210,8 @@ function renderFit(f) {
   const note = document.createElement('p');
   note.className = 'fine';
   note.textContent = f.verdict === 'ok'
-    ? 'Dibs checked years, title, team-leading and required qualifications.' + (f.assumed ? ' It assumed 0 years of experience. You can set yours in My profile.' : '')
-    : 'No resume wording fixes this. Dibs only warns, you decide.' + (f.assumed ? ' It assumed 0 years of experience (set yours in My profile).' : '');
+    ? 'Perchly checked years, title, team-leading and required qualifications.' + (f.assumed ? ' It assumed 0 years of experience. You can set yours in My profile.' : '')
+    : 'No resume wording fixes this. Perchly only warns, you decide.' + (f.assumed ? ' It assumed 0 years of experience (set yours in My profile).' : '');
   box.append(note);
   box.hidden = false;
 }
@@ -308,7 +308,7 @@ async function renderMatch() {
     b.className = 'badge' + (it.proof ? ' related' : it.status === 'gap' ? ' gap' : it.status === 'related' || liOnly ? ' related' : '');
     b.textContent = it.proof ? 'you have it (your note), not on resume yet' : liOnly ? 'LinkedIn only, not on resume' : it.status === 'resume' ? 'on your resume' : it.status === 'github' ? 'GitHub: ' + it.repos.join(', ') : it.status === 'related' ? 'related: ' + it.related.hits.join(', ') : 'gap';
     if (open) {
-      b.title = 'Click if you really have this skill. Dibs will ask which project or job shows it.';
+      b.title = 'Click if you really have this skill. Perchly will ask which project or job shows it.';
       b.addEventListener('click', () => proofForm(el, it));
     }
     el.appendChild(b);
@@ -401,13 +401,13 @@ function download(name, text, type) {
 }
 document.getElementById('export-all').addEventListener('click', async () => {
   const all = await chrome.storage.local.get(null);
-  download('dibs-my-data-' + todayStr() + '.json', JSON.stringify({ exportedAt: new Date().toISOString(), app: 'Dibs', data: all }, null, 2), 'application/json');
-  setStatus.textContent = 'Downloaded everything Dibs has stored, as one file.';
+  download('perchly-my-data-' + todayStr() + '.json', JSON.stringify({ exportedAt: new Date().toISOString(), app: 'Perchly', data: all }, null, 2), 'application/json');
+  setStatus.textContent = 'Downloaded everything Perchly has stored, as one file.';
 });
 document.getElementById('export-csv').addEventListener('click', async () => {
   const list = await tracker.all();
   if (!list.length) { setStatus.textContent = 'Your tracker is empty.'; return; }
-  download('dibs-tracker-' + todayStr() + '.csv', '\uFEFF' + trackerToCsv(list), 'text/csv');
+  download('perchly-tracker-' + todayStr() + '.csv', '\uFEFF' + trackerToCsv(list), 'text/csv');
   setStatus.textContent = 'Downloaded ' + list.length + ' application' + (list.length === 1 ? '' : 's') + '. It opens in Excel or Google Sheets.';
 });
 document.getElementById('import-btn').addEventListener('click', () => document.getElementById('import-csv').click());
@@ -483,9 +483,9 @@ document.getElementById('allow').addEventListener('click', async () => {
   try {
     const ok = await chrome.permissions.request({ origins: ['https://*/*', 'http://*/*'] });
     if (ok) readPage(true);
-    else setBubble('Chrome did not grant access. Open chrome://extensions, click Details on Dibs, and set Site access to On all sites.');
+    else setBubble('Chrome did not grant access. Open chrome://extensions, click Details on Perchly, and set Site access to On all sites.');
   } catch (err) {
-    setBubble('Could not ask Chrome (' + (err && err.message ? err.message : err) + '). Open chrome://extensions, click Details on Dibs, and set Site access to On all sites.');
+    setBubble('Could not ask Chrome (' + (err && err.message ? err.message : err) + '). Open chrome://extensions, click Details on Perchly, and set Site access to On all sites.');
   }
 });
 skipBtn.addEventListener('click', () => { skipping = true; });
@@ -529,7 +529,7 @@ chrome.storage.onChanged.addListener((changes, area) => {
 });
 
 document.getElementById('withdraw').addEventListener('click', async () => {
-  if (confirm('This deletes everything Dibs saved on this computer (including your profile) and locks Dibs until you agree again. Continue?')) {
+  if (confirm('This deletes everything Perchly saved on this computer (including your profile) and locks Perchly until you agree again. Continue?')) {
     await chrome.storage.local.clear();
     resumeEl.value = ''; linkedinEl.value = ''; ghUserEl.value = ''; statusEl.textContent = '';
     yearsEl.value = ''; board.textContent = ''; lastNotes = []; shownScore = 0;
@@ -537,7 +537,7 @@ document.getElementById('withdraw').addEventListener('click', async () => {
   }
 });
 
-// After the user has allowed Dibs once, read automatically when they open or switch to a job page.
+// After the user has allowed Perchly once, read automatically when they open or switch to a job page.
 let autoTimer = null;
 async function maybeAutoRead() {
   const { consent } = await chrome.storage.local.get('consent');

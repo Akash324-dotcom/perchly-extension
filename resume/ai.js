@@ -1,5 +1,5 @@
 // AI helpers for the live resume window.
-// 1) PROVIDERS: chat sites you can paste the brief into (uses YOUR own login there; Dibs never calls them).
+// 1) PROVIDERS: chat sites you can paste the brief into (uses YOUR own login there; Perchly never calls them).
 // 2) On-device AI: Chrome's built-in Gemini Nano via the LanguageModel API. Free, no key, text stays on this computer.
 const PROVIDERS = [
   { id: 'claude', name: 'Claude', url: 'https://claude.ai/new' },
@@ -65,7 +65,7 @@ function truthGuard(orig, next, allowedText) {
   return { ok: probs.length === 0, problems: [...new Set(probs)] };
 }
 
-// ---- Fill the chat box of the AI site you picked (you still press Enter yourself; Dibs never sends) ----
+// ---- Fill the chat box of the AI site you picked (you still press Enter yourself; Perchly never sends) ----
 // This function runs INSIDE the AI site's page. It waits for the chat box, then types the brief into it.
 function fillPromptBox(text) {
   return new Promise((resolve) => {

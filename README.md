@@ -1,8 +1,6 @@
-# Dibs
+# Perchly
 
-**Call dibs on the job.** A free, private Chrome side panel that turns a job posting into notes, a keyword match, a gap plan, a tailored resume and a tracker, without leaving the page.
-
-D.I.B.S. = Details, Insights, Bullets, Skills.
+**A little robot that reads the job posting for you.** A free, private Chrome side panel that turns a job posting into notes, a keyword match, a gap plan, a tailored resume and a tracker, without leaving the page.
 
 Version 1.0.0. No server, no account, no analytics. Everything is stored in your browser.
 
@@ -14,8 +12,8 @@ Version 1.0.0. No server, no account, no analytics. Everything is stored in your
 - **Gap plan.** Each gap gets a rough time in hours. "Related" skills (you did the work, the word is missing) are separated from real gaps.
 - **You stay in control.** Remove any wrong note with its x button. Click a gap to say "I have this" and name the project that proves it.
 - **Tailoring window.** Auto-tailor reorders your own lines for the job and can add a GitHub project from its README, with a fill-in spot for the result. Live score, page-fit meter, cover letter (250 words, built from one real bullet), export to PDF or Word.
-- **Optional AI.** Chrome's on-device model can reword one bullet, with a truth check that rejects new numbers and names. Or send a full brief to the chat AI you already use (10 supported). Dibs never presses Send.
-- **Tracker.** Save or mark a job as applied. Dibs checks the tracker first when you open a posting, and warns about similar roles. Status, follow-up date, CSV export and import.
+- **Optional AI.** Chrome's on-device model can reword one bullet, with a truth check that rejects new numbers and names. Or send a full brief to the chat AI you already use (10 supported). Perchly never presses Send.
+- **Tracker.** Save or mark a job as applied. Perchly checks the tracker first when you open a posting, and warns about similar roles. Status, follow-up date, CSV export and import.
 
 ## What it will never do
 
@@ -28,7 +26,7 @@ Version 1.0.0. No server, no account, no analytics. Everything is stored in your
 1. Download or clone this folder.
 2. Open `chrome://extensions`, switch on **Developer mode**, press **Load unpacked** and pick the folder.
 3. Agree to the Terms and Privacy Policy on the welcome page.
-4. Open a job posting and click the Dibs icon.
+4. Open a job posting and click the Perchly icon.
 
 Needs Chrome 116 or newer. The on-device AI helper needs Chrome 138 or newer and a capable computer; everything else works without it.
 

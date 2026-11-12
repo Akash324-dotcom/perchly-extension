@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dibs</title>
+  <title>Perchly</title>
   <link rel="stylesheet" href="css/sidepanel.css">
 </head>
 <body>
   <header>
-    <div class="brand"><img src="icons/icon32.png" alt="" width="24" height="24"><h1>Dibs</h1></div>
+    <div class="brand"><img src="icons/icon32.png" alt="" width="24" height="24"><h1>Perchly</h1></div>
     <div class="actions">
       <button id="skip" hidden>Skip</button>
       <button id="read">Read this page</button>
     </div>
   </header>
   <section id="locked" hidden>
-    <p>Dibs needs your OK before it starts.</p>
+    <p>Perchly needs your OK before it starts.</p>
     <button id="open-welcome">Read and agree</button>
   </section>
   <section id="stage">
@@ -23,8 +23,8 @@
     <div id="bubble">Open a job posting, then press Read this page.</div>
   </section>
   <div id="allow-row" hidden>
-    <button id="allow">Allow Dibs to read job pages</button>
-    <p>Chrome will ask once. Dibs still reads a page only when you press Read this page. You can turn this off any time in chrome://extensions.</p>
+    <button id="allow">Allow Perchly to read job pages</button>
+    <p>Chrome will ask once. Perchly still reads a page only when you press Read this page. You can turn this off any time in chrome://extensions.</p>
   </div>
   <section id="fit" hidden></section>
   <section id="match" hidden>
@@ -46,7 +46,7 @@
       <button id="track-save">Save for later</button>
       <button id="track-applied" class="primary">I applied</button>
     </div>
-    <p id="track-fine" class="fine">Dibs never submits anything for you. Press "I applied" only after you have sent the application yourself.</p>
+    <p id="track-fine" class="fine">Perchly never submits anything for you. Press "I applied" only after you have sent the application yourself.</p>
   </section>
   <main id="board"></main>
   <details id="tracker-box">
@@ -63,7 +63,7 @@
       <span class="row"><input type="text" id="gh-user" placeholder="e.g. octocat"><button id="gh-fetch">Fetch</button></span>
     </label>
     <label>LinkedIn (paste your About and Skills text)
-      <textarea id="linkedin" rows="3" placeholder="Dibs never opens LinkedIn. Paste text you copied from your own profile."></textarea>
+      <textarea id="linkedin" rows="3" placeholder="Perchly never opens LinkedIn. Paste text you copied from your own profile."></textarea>
     </label>
     <label>Years of full-time work experience in your field
       <input type="number" id="years" min="0" max="40" step="0.5" placeholder="0 (leave empty for new grad)">
@@ -90,7 +90,7 @@
     </div>
     <p id="settings-status" role="status" class="fine"></p>
     <p id="consent-info" class="fine"></p>
-    <p class="fine">About: Dibs reads postings with pattern matching, not AI, so it can miss or misread things. You can remove any wrong note with its &times; button. The optional AI helpers are in the tailoring window.</p>
+    <p class="fine">About: Perchly reads postings with pattern matching, not AI, so it can miss or misread things. You can remove any wrong note with its &times; button. The optional AI helpers are in the tailoring window.</p>
   </details>
   <footer id="footer" hidden>
     <a href="docs/terms.html" target="_blank">Terms</a> &middot;

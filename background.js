@@ -1,4 +1,4 @@
-// Clicking the toolbar icon: Chrome grants Dibs access to THIS tab (activeTab) and then we open the side panel.
+// Clicking the toolbar icon: Chrome grants Perchly access to THIS tab (activeTab) and then we open the side panel.
 // (Chrome's automatic "open panel on click" switch skips that grant, so we handle the click ourselves.)
 chrome.action.onClicked.addListener((tab) => {
   chrome.sidePanel.open({ tabId: tab.id });

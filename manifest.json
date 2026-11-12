@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Dibs",
+  "name": "Perchly",
   "version": "1.0.0",
   "description": "Turns a job posting into notes, a keyword match, a gap plan and a private tracker. Your data stays in your browser.",
   "permissions": [
@@ -10,7 +10,7 @@
     "scripting"
   ],
   "action": {
-    "default_title": "Open Dibs",
+    "default_title": "Open Perchly",
     "default_icon": {
       "16": "icons/icon16.png",
       "32": "icons/icon32.png"

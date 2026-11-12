@@ -1,4 +1,4 @@
-// The Dibs robot: one SVG, many moods. The CSS in css/sidepanel.css animates it
+// The Perchly robot: one SVG, many moods. The CSS in css/sidepanel.css animates it
 // based on the data-mood attribute on #robot.
 const ROBOT_SVG = `
 <svg viewBox="0 0 96 112" width="72" height="84" aria-hidden="true">

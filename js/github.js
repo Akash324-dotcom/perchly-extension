@@ -16,7 +16,7 @@ async function fetchGithub(user, onProgress) {
     name: r.name, desc: r.description || '', lang: r.language || '', topics: r.topics || [],
     url: r.html_url, stars: r.stargazers_count || 0, pushed: (r.pushed_at || '').slice(0, 10), readme: '',
   }));
-  // README text lets Dibs see what a project really contains. Small batches keep us under GitHub's anonymous limit.
+  // README text lets Perchly see what a project really contains. Small batches keep us under GitHub's anonymous limit.
   let done = 0, limited = false;
   for (let i = 0; i < repos.length && !limited; i += 4) {
     await Promise.all(repos.slice(i, i + 4).map(async (r) => {
