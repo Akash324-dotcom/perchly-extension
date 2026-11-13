@@ -50,4 +50,4 @@ See `docs/privacy.html` and `docs/terms.html`. Short version: your resume, notes
 
 ## Licence
 
-Not chosen yet. Until a licence file is added, all rights are reserved by the author.
+MIT. See the `LICENSE` file. Copyright (c) 2026 Akash Maity. The bundled pdf.js keeps its own Apache 2.0 licence.
