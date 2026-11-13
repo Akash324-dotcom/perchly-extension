@@ -4,6 +4,10 @@
 
 Version 1.0.0. No server, no account, no analytics. Everything is stored in your browser.
 
+**[Install Perchly from the Chrome Web Store](https://chromewebstore.google.com/detail/perchly/ecfdlphjbggjekblchgamalakglejkkj)**
+
+How to start: install it, open the side panel, add your resume in My profile, open a job posting and press "Read this page".
+
 ## What it does
 
 - **Reads a posting into notes.** A small robot highlights the words on the page while sticky notes appear: pay, level, place, dates, every requirement, duty and preferred line, required and nice-to-have skills, and flags (no pay listed, deadline passed).
